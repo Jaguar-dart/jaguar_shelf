@@ -10,7 +10,7 @@ main() async {
       new shelf.Response.ok("You've requested ${request.url}");
   final shelfHandler = new ShelfHandler(echoHandler);
 
-  Configuration conf = new Configuration();
-  conf.addApi(shelfHandler);
-  await serve(conf);
+  Jaguar server = new Jaguar();
+  server.addApi(shelfHandler);
+  await server.serve();
 }

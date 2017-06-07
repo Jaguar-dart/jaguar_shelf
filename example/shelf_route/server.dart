@@ -4,11 +4,10 @@
 import 'package:jaguar_shelf/jaguar_shelf.dart';
 import 'package:jaguar/jaguar.dart';
 import 'shelf_handlers.dart';
-import 'dart:async';
 
 main() async {
   final handler = makeHandler();
-  Configuration conf = new Configuration();
-  conf.addApi(new ShelfHandler(handler));
-  await serve(conf);
+  Jaguar server = new Jaguar();
+  server.addApi(new ShelfHandler(handler));
+  await server.serve();
 }
