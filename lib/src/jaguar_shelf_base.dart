@@ -39,10 +39,10 @@ class ShelfHandler implements RequestHandler {
 
   ShelfHandler(this._handler);
 
-  Future<Response> handleRequest(Request request, {String prefix}) async {
-    shelf.Request shelfReq = await jaguarToShelfRequest(request);
+  Future<Response> handleRequest(Context ctx, {String prefix}) async {
+    shelf.Request shelfReq = await jaguarToShelfRequest(ctx.req);
     shelf.Response resp = await _handler(shelfReq);
-    if(resp.statusCode == HttpStatus.NOT_FOUND) return null;
+    if (resp.statusCode == HttpStatus.NOT_FOUND) return null;
     return shelfToJaguarResponse(resp);
   }
 }

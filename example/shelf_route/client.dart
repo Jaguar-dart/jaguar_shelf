@@ -30,8 +30,8 @@ Future<Null> execSomeRoute() async {
 }
 
 Future<Null> execGreeting2() async {
-  final uri = new Uri.http(
-      '$kHostname:$kPort', '/greeting2/teja', {'age': '28'});
+  final uri =
+      new Uri.http('$kHostname:$kPort', '/greeting2/teja', {'age': '28'});
   http.Response resp = await _client.get(uri);
 
   await printHttpClientResponse(resp);

@@ -2,7 +2,7 @@ import 'package:shelf/shelf.dart';
 import 'package:shelf_route/shelf_route.dart' as route;
 import 'package:shelf_bind/shelf_bind.dart';
 import 'package:http_exception/http_exception.dart';
-import 'package:shelf_exception_handler/shelf_exception_handler.dart';
+//TODO import 'package:shelf_exception_handler/shelf_exception_handler.dart';
 import 'dart:async';
 
 Handler makeHandler() {
@@ -25,7 +25,7 @@ Handler makeHandler() {
 
   var handler = const Pipeline()
       .addMiddleware(logRequests())
-      .addMiddleware(exceptionHandler())
+      //TODO .addMiddleware(exceptionHandler())
       .addHandler(router.handler);
 
   route.printRoutes(router);
